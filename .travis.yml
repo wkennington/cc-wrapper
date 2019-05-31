@@ -1,4 +1,4 @@
-# Copyright 2017 cc-wrapper authors
+# Copyright 2019 cc-wrapper authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,34 +19,33 @@
 # Please refer to build/compiler_exes.sh for the input environment
 # for running this script as it does the heavy lifting
 
-dist: trusty
+dist: xenial
 sudo: false
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - llvm-toolchain-trusty-6.0
+      - llvm-toolchain-xenial-8
     packages:
-      - clang-6.0
-      - clang-format-6.0
-      - clang-tidy-6.0
+      - clang-8
+      - clang-format-8
+      - clang-tidy-8
       - cmake
       - libc6-dbg
-      - libstdc++-7-dev
-      - libstdc++6
-      - gcc-7
-      - g++-7
+      - libstdc++-9-dev
+      - gcc-9
+      - g++-9
       - ninja
 language:
   - c
   - c++
 env:
   global:
-    - GOOGLETEST_VERSION=15392f1a38fa0b8c3f13a9732e94b209069efa1c
+    - GOOGLETEST_VERSION=8ffb7e5c88b20a297a2e786c480556467496463b
     - MAKE_VERSION=4.2.1
-    - VALGRIND_VERSION=3.13.0
-    - CC_VERSION_gcc=7
-    - CC_VERSION_clang=6.0
+    - VALGRIND_VERSION=3.15.0
+    - CC_VERSION_gcc=9
+    - CC_VERSION_clang=8
   matrix:
     - BUILD_AND_CHECK=1 CC_NAME=gcc
     - BUILD_AND_CHECK=1 CC_NAME=clang
